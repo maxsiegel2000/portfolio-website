@@ -1,4 +1,4 @@
-import memoji from "@/assets/images/mimoji.png"
+import memoji_laptop from "@/assets/images/mimoji_laptop.png"
 import Image from "next/image"
 import ArrowDown from "@/assets/icons/arrow-down.svg"
 import grainImage from "@/assets/images/grain.jpg"
@@ -54,7 +54,7 @@ export const HeroSection = () => {
     <div className="container">
         <div className="flex flex-col items-center">
           <Image 
-            src={memoji} 
+            src={memoji_laptop} 
             className="size-[100px]" 
             alt="Person peeking from behind laptop"
           /> 
