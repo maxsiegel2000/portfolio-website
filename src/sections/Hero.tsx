@@ -1,3 +1,4 @@
+"use client"
 import memoji_laptop from "@/assets/images/mimoji_laptop.png"
 import Image from "next/image"
 import ArrowDown from "@/assets/icons/arrow-down.svg"
@@ -5,10 +6,14 @@ import grainImage from "@/assets/images/grain.jpg"
 import StarIcon from "@/assets/icons/star.svg"
 import { HeroOrbit } from "@/components/HeroOrbit"
 import SparkleIcon from "@/assets/icons/sparkle.svg"
+import { motion } from "motion/react";
 
 export const HeroSection = () => {
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip mask1">
+    <motion.div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip mask1" 
+      initial={{ y: 0,opacity:0}} 
+      animate={{ y:0, opacity:1}}
+      id="home">
       <div className="abolute inset-0">
         <div 
           className="absolute inset-0 -z-30 opacity-5" 
@@ -29,7 +34,7 @@ export const HeroSection = () => {
         <HeroOrbit size={520} rotation={-41} shouldOrbit orbitDuration="34s">
           <div className="size-2 rounded-full bg-emerald-300/20"></div>
         </HeroOrbit>
-        <HeroOrbit size={530} rotation={178} shouldOrbit orbitDuration="36s">
+        <HeroOrbit size={530} rotation={178} shouldOrbit orbitDuration="36s" shouldSpin spinDuration="5s">
           <SparkleIcon className="size-10 text-emerald-300/20"/>
         </HeroOrbit>
         <HeroOrbit size={550} rotation={20} shouldOrbit orbitDuration="38s" shouldSpin spinDuration="10s">
@@ -86,6 +91,6 @@ export const HeroSection = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
   )
 };
