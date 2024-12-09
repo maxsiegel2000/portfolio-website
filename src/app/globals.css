@@ -15,6 +15,9 @@
 	.mask2{
 		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)
 	}
+	.radial-mask{
+		mask-image: radial-gradient(50% 50% at bottom center, black, transparent)
+	}
 	.gradient1{
 		@apply bg-gradient-to-r from-emerald-300 to-sky-400
 	}

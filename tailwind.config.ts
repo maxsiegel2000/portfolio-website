@@ -10,7 +10,7 @@ const config: Config = {
   ],
   theme: {
   	screens: {
-  		sm: '375px',
+  		sm: '380px',
   		md: '768px',
   		lg: '1200px'
   	},
@@ -22,6 +22,35 @@ const config: Config = {
   		}
   	},
   	extend: {
+  		keyframes: {
+  			'ping-large': {
+  				'75%, 100%': {
+  					transform: 'scale(3)',
+  					opacity: '0'
+  				}
+  			},
+  			marquee: {
+  				from: {
+  					transform: 'translateX(0)'
+  				},
+  				to: {
+  					transform: 'translateX(calc(-100% - var(--gap)))'
+  				}
+  			},
+  			'marquee-vertical': {
+  				from: {
+  					transform: 'translateY(0)'
+  				},
+  				to: {
+  					transform: 'translateY(calc(-100% - var(--gap)))'
+  				}
+  			}
+  		},
+  		animation: {
+  			'ping-large': 'ping-large 1s ease-in-out infinite',
+  			marquee: 'marquee var(--duration) infinite linear',
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  		},
   		fontFamily: {
   			sans: 'var(--font-sans)',
   			serif: 'var(--font-serif)'

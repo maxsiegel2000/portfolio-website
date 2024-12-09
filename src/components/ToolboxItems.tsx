@@ -8,6 +8,7 @@ import FigmaIcon from "@/assets/icons/figma.svg"
 import NextJSIcon from "@/assets/icons/nextjs-icon.svg"
 import SwiftIcon from "@/assets/icons/swift.svg"
 import { twMerge } from "tailwind-merge";
+import { Fragment } from "react";
 
 const toolboxItems = [
 	{
@@ -48,15 +49,15 @@ export const ToolboxItems = ({className, itemsWrapperClassName}:{
 	itemsWrapperClassName?: string
 }) => {
 	return(
-		<div className={twMerge("mask2", className)}>
+		<div className={twMerge("", className)}>
 			<div className={twMerge("flex flex-none py-0.5 gap-6 pr-6", itemsWrapperClassName)}>
 				{toolboxItems.map(item => (
-				<div 
+					<div 
 					key={item.title} 
-					className="inline-flex items-center gap-4 py-2 px-3 outline outline-2 outline-white/10 rounded-lg">
-					<TechIcon component={item.iconType}/>
-					<span className="font-semibold">{item.title}</span>
-				</div>
+					className="inline-flex items-center gap-4 py-2 px-3 outline outline-2 outline-white/10 hover:outline-white rounded-lg">
+						<TechIcon component={item.iconType}/>
+						<span className="font-semibold">{item.title}</span>
+					</div>
 				))}
 			</div>
         </div>

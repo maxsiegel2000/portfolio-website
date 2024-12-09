@@ -5,6 +5,7 @@ import Image from "next/image"
 import memoji from "@/assets/images/memoji.png"
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
+import Marquee from "@/components/ui/marquee"
 
 
 const hobbies = [
@@ -127,8 +128,12 @@ export const AboutSection = () => {
                 title="My Toolbox" 
                 description="Explore the technologies and tools I use to craft exceptional digital experiences."
                 />
-              <ToolboxItems className=""/>
-              <ToolboxItems className="mt-6" itemsWrapperClassName="-translate-x-1/2"/>
+              <Marquee>
+                <ToolboxItems />
+              </Marquee>
+              <Marquee reverse>
+                <ToolboxItems />
+              </Marquee>
             </Card>
           </div>
           <div className="gap-8 grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3">
