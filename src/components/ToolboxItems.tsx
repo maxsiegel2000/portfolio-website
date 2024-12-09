@@ -8,7 +8,6 @@ import FigmaIcon from "@/assets/icons/figma.svg"
 import NextJSIcon from "@/assets/icons/nextjs-icon.svg"
 import SwiftIcon from "@/assets/icons/swift.svg"
 import { twMerge } from "tailwind-merge";
-import { Fragment } from "react";
 
 const toolboxItems = [
 	{

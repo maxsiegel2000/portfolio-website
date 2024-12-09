@@ -1,3 +1,4 @@
+"use client"
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import mapImage from "@/assets/images/map.png"
@@ -6,7 +7,8 @@ import memoji from "@/assets/images/memoji.png"
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 import Marquee from "@/components/ui/marquee"
-
+import { motion } from "motion/react"
+import { useRef } from "react";
 
 const hobbies = [
   {
@@ -86,6 +88,7 @@ const values = [
 ]
 
 export const AboutSection = () => {
+  const constrainRef = useRef(null)
   return(
     <div className="py-16 lg:py-28"> 
       <div className="container">
@@ -142,18 +145,19 @@ export const AboutSection = () => {
                   title="Beyond the Code" 
                   description="Explore my interests and hobbies beyond the digital realm."
                 />
-              <div className="relative flex-1">
+              <div className="relative flex-1" ref={constrainRef}>
                 {hobbies.map(hobby =>(
-                  <div 
+                  <motion.div 
                     key={hobby.title} 
                     className="inline-flex items-center gap-2 px-6 gradient1 rounded-full py-1.5 absolute"
                     style={{
                       left: hobby.left,
                       top: hobby.top
-                    }}>
+                    }}drag
+                      dragConstraints={constrainRef}>
                     <span className="font-medium text-slate-950">{hobby.title}</span>
                     <span>{hobby.emoji}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </Card>
