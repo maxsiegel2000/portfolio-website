@@ -7,13 +7,16 @@ import StarIcon from "@/assets/icons/star.svg"
 import { HeroOrbit } from "@/components/HeroOrbit"
 import SparkleIcon from "@/assets/icons/sparkle.svg"
 import { motion } from "motion/react";
+import { useSectionInView } from "@/lib/hooks"
 
 export const HeroSection = () => {
+  const {ref} = useSectionInView("Home", 0.5)
   return (
     <motion.div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip mask1" 
       initial={{ y: 0,opacity:0}} 
       animate={{ y:0, opacity:1}}
-      id="home">
+      id="home"
+      ref={ref}>
       <div className="abolute inset-0">
         <div 
           className="absolute inset-0 -z-30 opacity-5" 

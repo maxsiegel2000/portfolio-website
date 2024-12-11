@@ -9,6 +9,7 @@ import { ToolboxItems } from "@/components/ToolboxItems";
 import Marquee from "@/components/ui/marquee"
 import { motion } from "motion/react"
 import { useRef } from "react";
+import { useSectionInView } from "@/lib/hooks";
 
 const hobbies = [
   {
@@ -88,9 +89,13 @@ const values = [
 ]
 
 export const AboutSection = () => {
+  const {ref} = useSectionInView("About", 0.5)
   const constrainRef = useRef(null)
   return(
-    <section className="py-16 lg:py-28" id="about"> 
+    <section 
+      className="py-16 lg:py-28 scroll-mt-10" 
+      id="about"
+      ref={ref}> 
       <div className="container">
         <SectionHeader 
           eyebrow="About Me" 

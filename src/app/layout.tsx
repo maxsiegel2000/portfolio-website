@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Calistoga} from "next/font/google"
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans"})
 const calistoga = Calistoga({ 
@@ -21,9 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="!scroll-smooth scrollbar-hide">
       <body className={twMerge(inter.variable, calistoga.variable, "bg-slate-900 text-white antialiased font-sans")}>
-        {children}
+        <ActiveSectionContextProvider>
+          {children}
+        </ActiveSectionContextProvider>
       </body>
     </html>
   );

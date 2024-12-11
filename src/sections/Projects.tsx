@@ -7,8 +7,8 @@ import CheckCircleIcon from "@/assets/icons/check-circle.svg"
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg"
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card"
-import { motion, useScroll } from "motion/react";
-import { useRef } from "react";
+import { motion} from "motion/react";
+import { useSectionInView } from "@/lib/hooks";
 
 const portfolioProjects = [
   {
@@ -50,28 +50,26 @@ const portfolioProjects = [
 ];
 
 export const ProjectsSection = () => {
-  const ref = useRef<HTMLElement>(null)
-  const {scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1.33 1"]
-  })
+  const {ref} = useSectionInView("Projects", 0.5)
   return (
-    <motion.section ref={ref} className="pb-16 lg:py-24"
+    <motion.section className="pb-16 lg:py-24 scroll-mt-28"
     initial={{ y: 100,opacity:0}} 
     animate={{ y:0, opacity:1}}
     id="projects"
+    ref={ref}
     >
       <div className="container">
         <SectionHeader 
           title="My coding experience" 
           eyebrow="Private Projects" description="See how i transformed concepts into engaging digital experiences."/>
-        <div className="flex flex-col mt-10 gap-20 md:mt-20">
+        <div 
+        className="flex flex-col mt-10 gap-20 md:mt-20">
           {portfolioProjects.map((project, projectIndex) => (
             <Card 
               key={project.title} 
               className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky top-16"
               style={{
-                top: `calc(64px + ${projectIndex * 40}px)`
+                top: `calc(84px + ${projectIndex * 40}px)`
               }}>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
