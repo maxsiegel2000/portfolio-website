@@ -51,7 +51,7 @@ export function ContactForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          access_key: "438a19f9-88c8-4203-a0d0-0a0d935fd310",
           ...values,
         }),
       });
