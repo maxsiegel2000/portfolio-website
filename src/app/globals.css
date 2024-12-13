@@ -9,7 +9,7 @@
 		pointer-events: auto;
 	  }
 	.nav-item{
-		@apply md:px-4 sm:px-1 py-1.5 rounded-full dark:text-white/70 text-black/70 md:text-sm sm:text-xs font-semibold dark:hover:text-white hover:text-black duration-300
+		@apply md:px-4 sm:px-2 py-1.5 rounded-full dark:text-white/70 text-black/70 md:text-sm sm:text-xs font-semibold dark:hover:text-white hover:text-black duration-300
 	}
 	.hero-ring{
 		@apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full dark:border-emerald-300/5 border-emerald-700/10 shadow-[0_0_80px_inset] dark:shadow-emerald-300/5 shadow-emerald-700/10
