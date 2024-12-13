@@ -4,6 +4,7 @@ import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { ThemeSwitch } from "@/components/theme-switch";
+import { Toaster } from "react-hot-toast"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans"})
 const calistoga = Calistoga({ 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={twMerge(inter.variable, calistoga.variable, "dark:bg-slate-900 dark:text-white bg-slate-100 text-black antialiased font-sans")}>
         <ActiveSectionContextProvider>
           {children}
+          <Toaster />
           <ThemeSwitch />
         </ActiveSectionContextProvider>
       </body>

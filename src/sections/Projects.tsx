@@ -8,8 +8,6 @@ import { motion} from "motion/react";
 import { useSectionInView } from "@/lib/hooks";
 import { ArrowUpRightIcon } from "lucide-react";
 
-
-
 export const ProjectsSection = () => {
   const {ref} = useSectionInView("Projects", 0.5)
   return (

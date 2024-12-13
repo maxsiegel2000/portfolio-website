@@ -1,12 +1,13 @@
 "use client"
 import { ContactForm } from "@/components/contact-form";
 import { useSectionInView } from "@/lib/hooks";
+import { motion} from "motion/react";
 
 export const ContactSection = () => {
   const {ref} = useSectionInView("Contact")
   return (
-    <div 
-      className="py-16 pt-14" 
+    <motion.section 
+      className="py-16 pt-14"
       id="contact"
       ref={ref}>
       <div className="container">
@@ -15,6 +16,6 @@ export const ContactSection = () => {
           <ContactForm/>
         </div>
       </div>
-    </div>
+    </motion.section>
   )
 };

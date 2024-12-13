@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/hooks/use-toast";
 import { Copy, ArrowUpRight } from "lucide-react";
+import toast from "react-hot-toast"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -57,20 +57,30 @@ export function ContactForm() {
       });
 
       if (response.ok) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for your message. I'll get back to you soon!",
-        });
+        toast.success("Message sent!",
+          {
+            style: {
+              borderRadius: '10px',
+              background: '#0f172a',
+              color: '#fff',
+              border: "1px solid white"
+            }, 
+          }
+        )
         form.reset();
       } else {
         throw new Error("Failed to send the message");
       }
     } catch (error) {
-      toast({
-        title: "Submission failed",
-        description: "There was an issue sending your message. Please try again.",
-        variant: "destructive",
-      });
+      toast.error("Submission failed",
+        {
+          style: {
+            borderRadius: '10px',
+            background: '#0f172a',
+            color: '#fff',
+            border: "1px solid white"
+          }
+        })
     } finally {
       setIsSubmitting(false);
     }
@@ -81,17 +91,26 @@ export function ContactForm() {
     navigator.clipboard
       .writeText(email)
       .then(() => {
-        toast({
-          title: "Email copied!",
-          description: "The email address has been copied to your clipboard.",
-        });
+        toast.success("Email copied!",
+          {
+            style: {
+              borderRadius: '10px',
+              background: '#0f172a',
+              color: '#fff',
+              border: "1px solid white"
+            }, 
+          })
       })
       .catch(() => {
-        toast({
-          title: "Copy failed",
-          description: "Failed to copy email. Please try again.",
-          variant: "destructive",
-        });
+        toast.error("Copy failed",
+          {
+            style: {
+              borderRadius: '10px',
+              background: '#0f172a',
+              color: '#fff',
+              border: "1px solid white"
+            }
+          })
       });
   };
 

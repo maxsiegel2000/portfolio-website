@@ -1,7 +1,7 @@
 "use client"
 
 import { Sun, Moon } from 'lucide-react'
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 
 type Theme = "light" | "dark"
 
