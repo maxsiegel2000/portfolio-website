@@ -38,22 +38,23 @@ export function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
-      message: "",
+      message: ""
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    const payload = {
+      access_key: "438a19f9-88c8-4203-a0d0-0a0d935fd310",
+      ...values,
+    };
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          access_key: "438a19f9-88c8-4203-a0d0-0a0d935fd310",
-          ...values,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
