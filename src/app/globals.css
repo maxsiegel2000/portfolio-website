@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+	body {
+		overflow-x: hidden;
+	  }
 	button {
 		position: relative;
 		z-index: 10;
