@@ -1,18 +1,18 @@
 "use client"
 import memoji_laptop from "@/assets/images/mimoji_laptop.png"
 import Image from "next/image"
-import ArrowDown from "@/assets/icons/arrow-down.svg"
 import grainImage from "@/assets/images/grain.jpg"
 import StarIcon from "@/assets/icons/star.svg"
 import { HeroOrbit } from "@/components/HeroOrbit"
 import SparkleIcon from "@/assets/icons/sparkle.svg"
 import { motion } from "motion/react";
 import { useSectionInView } from "@/lib/hooks"
+import { Download} from "lucide-react"
 
 export const HeroSection = () => {
   const {ref} = useSectionInView("Home", 0.5)
   return (
-    <motion.div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip mask1" 
+    <motion.div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip dark:mask1_dark mask1_light" 
       initial={{ y: 0,opacity:0}} 
       animate={{ y:0, opacity:1}}
       id="home"
@@ -60,13 +60,13 @@ export const HeroSection = () => {
         </HeroOrbit>
       </div>
       <div className="container">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center z-10">
             <Image 
               src={memoji_laptop} 
               className="size-[100px]" 
               alt="Person peeking from behind laptop"
             /> 
-            <div className="bg-slate-950 border border-slate-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
+            <div className="dark:bg-slate-950 bg-slate-50 border dark:border-slate-800 border-slate-200 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
               <div className="bg-green-500 size-2.5 rounded-full relative">
                 <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
               </div>
@@ -79,18 +79,25 @@ export const HeroSection = () => {
             <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
               Hello, I'm Max
             </h1>
-            <p className="mt-4 text-center text-white/60 md:text-lg ">
+            <p className="mt-4 text-center dark:text-white/60 text-black/60 md:text-lg ">
               I am student in business software engenieering
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
-              <span className="font-semibold">Explore my work</span>
-              <ArrowDown className="size-4" />
+            <button>
+              <a download href="./Max_Siegel_CV.pdf"
+                className="inline-flex items-center gap-2 border dark:border-white/15 border-black/15 px-6 h-12 rounded-xl dark:hover:bg-white/20 hover:bg-black/20">
+                <span className="font-semibold">Download my CV!</span>
+                <Download size={18}/>
+              </a>
             </button>
-            <button className="inline-flex items-center gap-2 border border-white bg-white text-slate-900 h-12 px-6 rounded-xl">
-              <span>👋</span>
-              <span className="font-semibold">Let's connect!</span>
+            <button>
+              <a 
+                className="inline-flex items-center gap-2 border dark:border-white border-black dark:bg-white bg-black hover:bg-transparent hover:text-black dark:text-slate-900 text-slate-100 h-12 px-6 rounded-xl dark:hover:bg-opacity-0 dark:hover:text-white"
+                href="#contact">
+                <span>👋</span>
+                <span className="font-semibold">Let's connect!</span>
+              </a>
             </button>
           </div>
         </div>

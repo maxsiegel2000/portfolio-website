@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: ["class"],
+    darkMode: "class",
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,7 +15,7 @@ const config: Config = {
   		lg: '1200px'
   	},
   	container: {
-  		center: 'true',
+  		center: true,
   		padding: {
   			DEFAULT: '1rem',
   			md: '2rem'
@@ -106,7 +106,6 @@ const config: Config = {
   },
   plugins: [
     require("@designbycode/tailwindcss-mask-image"),
-      require("tailwindcss-animate")
-],
+      require("tailwindcss-animate")],
 };
 export default config;

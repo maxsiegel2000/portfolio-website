@@ -3,25 +3,52 @@
 @tailwind utilities;
 
 @layer base {
+	button {
+		position: relative;
+		z-index: 10;
+		pointer-events: auto;
+	  }
 	.nav-item{
-		@apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:text-white duration-300
+		@apply px-4 py-1.5 rounded-full dark:text-white/70 text-black/70 text-sm font-semibold dark:hover:text-white hover:text-black duration-300
 	}
 	.hero-ring{
-		@apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5
+		@apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full dark:border-emerald-300/5 border-emerald-700/10 shadow-[0_0_80px_inset] dark:shadow-emerald-300/5 shadow-emerald-700/10
 	}
-	.mask1{
-		mask-image: linear-gradient(to bottom, transparent, black 10%, black 70%, transparent)
+	.mask1_dark{
+		mask-image:linear-gradient(to bottom, transparent, black 10%, black 70%, transparent);
+		-webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 70%, transparent);
+		pointer-events: none;
+		z-index: 0;
 	}
-	.mask2{
+	.mask1_light{
+		mask-image:linear-gradient(to bottom, transparent, white 10%, white 70%, transparent);
+		-webkit-mask-image: linear-gradient(to bottom, transparent, white 10%, white 70%, transparent);
+		pointer-events: none;
+		z-index: 0;
+	}
+	.mask2_dark{
 		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)
 	}
-	.radial-mask{
-		mask-image: radial-gradient(50% 50% at bottom center, black, transparent)
+	.mask2_light{
+		mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent)
+	}
+	.radial_mask_dark{
+		position: absolute;
+		mask-image: radial-gradient(50% 50% at bottom center, black, transparent);
+		-webkit-mask-image: radial-gradient(50% 50% at bottom center, black, transparent);
+		pointer-events: none;
+		z-index: 0;
+	}
+	.radial_mask_light{
+		position: absolute;
+		mask-image: radial-gradient(50% 50% at bottom center, white, transparent);
+		-webkit-mask-image: radial-gradient(50% 50% at bottom center, black, transparent);
+		pointer-events: none;
+		z-index: 0;
 	}
 	.gradient1{
 		@apply bg-gradient-to-r from-emerald-300 to-sky-400
 	}
-
 	@layer utilities {
 		.container{
 			@apply lg:max-w-5xl

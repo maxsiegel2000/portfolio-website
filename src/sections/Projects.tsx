@@ -1,53 +1,14 @@
 "use client"
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg"
-import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg"
+import {portfolioProjects} from "@/lib/data"
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card"
 import { motion} from "motion/react";
 import { useSectionInView } from "@/lib/hooks";
+import { ArrowUpRightIcon } from "lucide-react";
 
-const portfolioProjects = [
-  {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/4k7IdSLxh6w",
-    image: darkSaasLandingPage,
-  },
-  {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
-    results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
-    ],
-    link: "https://youtu.be/7hi5zwO75yc",
-    image: lightSaasLandingPage,
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
-  },
-];
+
 
 export const ProjectsSection = () => {
   const {ref} = useSectionInView("Projects", 0.5)
@@ -79,29 +40,41 @@ export const ProjectsSection = () => {
                   <span>{project.year}</span>
                 </div>
                   <h3 className="font-serif text-2xl md:text-4xl mt-2 md:mt-5">{project.title}</h3>
-                  <hr className="border-t-2 border-white/5 mt-4"/>
+                  <hr className="border-t-2 dark:border-white/5 border-black/5 mt-4"/>
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                     {project.results.map(result =>(
                       <li 
                         key={project.title}
-                        className="flex gap-2 text-sm md:text-base text-white/50">
+                        className="flex gap-2 text-sm md:text-base dark:text-white/50 text-black/50">
                         <CheckCircleIcon className="size-5 md:size-6"/>
                         <span>{result.title}</span>
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link}>
+                  {project.title !== "PowerUp"?
+                    <a href={project.link}>
                     <button className="bg-white text-slate-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
-                      <span>View more information</span>
+                      <span>View on GitHub</span>
                       <ArrowUpRightIcon  className="size-4"/>
                     </button>
-                  </a>
+                  </a> : ""
+                  }
                 </div>
                 <div className="relative">
-                 <Image 
+                  {project.title === "PowerUp"?
+                    <Image 
                     src={project.image} 
                     alt={project.title} 
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"/>
+                    className="mt-12 scale-150 -mb-10 md:-mb-40 md:mt-20 lg:mt-0 lg:mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none md:scale-120"/>
+                  : project.title === "NextAuth"?
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="mt-8 -mb-20 md:scale-75 md:-mt-20 lg:mt-0 lg:absolute lg:scale-100 rounded-3xl"/>
+                  :<Image 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="mt-12 scale-150 -mb-20 md:-mb-40 md:mt-20 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"/>}
                  </div>
               </div>
             </Card>

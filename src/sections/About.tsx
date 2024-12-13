@@ -10,85 +10,14 @@ import Marquee from "@/components/ui/marquee"
 import { motion } from "motion/react"
 import { useRef } from "react";
 import { useSectionInView } from "@/lib/hooks";
-
-const hobbies = [
-  {
-    title: 'Fitness',
-    emoji: '🏋',
-    left: '5%',
-    top: '5%'
-  },
-  {
-    title: 'Swimming',
-    emoji: '🏊‍♂️',
-    left: '50%',
-    top: '5%'
-  },
-  {
-    title: 'Riding',
-    emoji: '🚴',
-    left: '35%',
-    top: '35%'
-  },
-  {
-    title: 'Jogging',
-    emoji: '🏃',
-    left: '45%',
-    top: '70%'
-  },
-  {
-    title: 'Gaming',
-    emoji: '🎮',
-    left: '70%',
-    top: '45%'
-  },
-  {
-    title: 'Music',
-    emoji: '🎵',
-    left: '-5%',
-    top: '50%'
-  }
-]
-const values = [
-  {
-    title: 'value1',
-    emoji: '',
-    left: '',
-    top: ''
-  },
-  {
-    title: 'value2',
-    emoji: '',
-    left: '60%',
-    top: ''
-  },
-  {
-    title: 'value3',
-    emoji: '',
-    left: '',
-    top: '35%'
-  },
-  {
-    title: 'value4',
-    emoji: '',
-    left: '60%',
-    top: '35%'
-  },
-  {
-    title: 'value5',
-    emoji: '',
-    left: '',
-    top: '70%'
-  },
-  {
-    title: 'value6',
-    emoji: '',
-    left: '60%',
-    top: '70%'
-  },
-]
+import { hobbies, values } from "@/lib/data";
+import { TagSphere } from "@/components/TagSphere";
 
 export const AboutSection = () => {
+  const options = {
+    radius: 120,
+    maxSpeed: 1
+  }
   const {ref} = useSectionInView("About", 0.5)
   const constrainRef = useRef(null)
   return(
@@ -109,28 +38,10 @@ export const AboutSection = () => {
                 title="My Values" 
                 description="Explore the values that shaping my personality."
               />
-               {/* <div className="relative flex-1 w-[400px] md:w-[260px] lg:w-[430px]">
-                {values.map(values =>(
-                  <div 
-                    key={values.title} 
-                    className="inline-flex items-center gap-2 px-6 gradient1 rounded-full py-1.5 absolute"
-                    style={{
-                      left: values.left,
-                      top: values.top
-                    }}>
-                    <span className="font-medium text-slate-950">{values.title}</span>
-                    <span>{values.emoji}</span>
-                  </div>
-                ))}
-              </div> */}
+              <div className="flex-1 flex items-center justify-center ml-40 mr-10 -mt-4">
+                <TagSphere texts={values} options={options} />
+              </div>
             </Card>
-                {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1 size-20 rounded-full gradient1 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offsett-2 after:rounded-full after:outline-slate-950/30">
-                  <Image 
-                    src={memoji} 
-                    alt="memoji"
-                    className="size-20"/>
-                  </div> */}
-             
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader 
                 title="My Toolbox" 
@@ -171,7 +82,9 @@ export const AboutSection = () => {
                 src={mapImage} 
                 alt="map"
                 className="h-full w-full object-cover"/>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full gradient1 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offsett-2 after:rounded-full after:outline-slate-950/30">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offsett-2 after:rounded-full after:outline-slate-50/30">
+                <div className="absolute inset-0 rounded-full gradient1 -z-20 animate-ping [animation-duration:2s]"></div>
+                <div className="absolute inset-0 rounded-full gradient1 -z-10"></div>
                 <Image
                   src={memoji} 
                   alt="memoji"

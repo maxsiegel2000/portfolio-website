@@ -41,11 +41,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ date, title, location, desc
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`flex w-full md:w-[calc(50%-2rem)] items-center ${isLeft ? 'md:mr-auto' : 'md:ml-auto'}`}
       >
-        <div className={`w-full md:w-auto bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl border-white/20${isLeft ? 'md:text-right' : 'md:text-left'}`}>
-          <h3 className="text-xl font-semibold text-white mb-1">{title}</h3>
-          <p className="text-white/80 mb-2">{location}</p>
-          <p className="text-white/60 text-sm mb-2">{description}</p>
-          <p className="text-white/80 text-sm md:hidden">{date}</p>
+        <div className={`w-full md:w-auto border dark:bg-slate-800/50 bg-slate-200/50 backdrop-blur-sm p-6 rounded-xl dark:border-white/20 border-black ${isLeft ? 'md:text-right' : 'md:text-left'}`}>
+          <h3 className="text-xl font-semibold dark:text-white text-black mb-1">{title}</h3>
+          <p className="dark:text-white/80 text-black/80 mb-2">{location}</p>
+          <p className="dark:text-white/60 text-black/60 text-sm mb-2">{description}</p>
+          <p className="dark:text-white/80 text-black/80 text-sm md:hidden">{date}</p>
         </div>
       </motion.div>
       <div className="absolute -left-12 md:left-1/2 top-1/2 -translate-y-1/2 md:-translate-x-1/2">
@@ -57,11 +57,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ date, title, location, desc
             visible: { opacity: 1, scale: 1 }
           }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-12 h-12 rounded-full flex items-center justify-center border-4 border-white bg-slate-900">
+          className="w-12 h-12 rounded-full flex items-center justify-center border-4 dark:border-white border-black dark:bg-slate-900 bg-slate-100">
           {icon}
         </motion.div>
       </div>
-      <div className={`hidden md:block absolute ${isLeft ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 text-white/80 w-[calc(50%-2rem)] ${isLeft ? 'text-left' : 'text-right'}`}>
+      <div className={`hidden md:block absolute ${isLeft ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 dark:text-white/80 text-black/80 w-[calc(50%-2rem)] ${isLeft ? 'text-left' : 'text-right'}`}>
         {date}
       </div>
     </div>

@@ -1,22 +1,16 @@
-import { ArrowUpRight } from "lucide-react";
-
-const footerLinks = [
-  {
-    title: "LinkedIn",
-    href: "https://www.linkedin.com/in/max-siegel-97b676304/"
-  }
-]
+import { footerLinks } from "@/lib/data";
+import { ArrowUpRight } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="relative -z-10 overflow-x-clip">
-      <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 radial-mask -z-10"></div>
-      <div className="container">
-        <div className="border-t border-white/15 py-6 text-sm flex flex-col md:flex-row md:justify-between items-center gap-8">
-          <div className="text-white/40">&copy; 2024. All rights reserved.</div>
+    <footer className="relative overflow-x-clip">
+      <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 dark:radial_mask_dark radial_mask_light -z-10"></div>
+      <div className="container relative z-10">
+        <div className="border-t dark:border-white/15 border-black/15 py-6 text-sm flex flex-col md:flex-row md:justify-between items-center gap-8">
+          <div className="dark:text-white/40 text-black/40">&copy; 2024. All rights reserved.</div>
           <nav className="flex flex-col md:flex-row items-center gap-8">
             {footerLinks.map(link => (
-              <a href={link.href} key={link.title} className="inline-flex items-center gap-1.5">
+             <a href={link.href} key={link.title} className="inline-flex items-center gap-1.5 hover:underline">
                 <span className="font-semibold">{link.title}</span>
                 <ArrowUpRight className="size-4"/>
               </a>

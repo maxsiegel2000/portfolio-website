@@ -10,12 +10,13 @@ export const Header = () => {
   return (
     <div className="flex justify-center items-center fixed top-3 w-full z-10">
       <motion.nav 
-        className="flex gap-1 p-2 border border-white/15 rounded-full bg-white/10 backdrop-blur" 
+        className="flex gap-1 p-2 border border-black/15 dark:border-white/15 rounded-full bg-black/10 dark:bg-white/10 backdrop-blur" 
         initial={{ y: -100,opacity:0}} 
         animate={{ y:0, opacity:1}}>
-      {links.map(link =>
-          <ul key={link.hash} className={cslx("nav-item relative",{"text-white": activeSection === link.name})}>
-            <Link 
+      {links.map((link, index) =>
+          <ul key={index} className={cslx("nav-item relative",{"dark:text-white text-black": activeSection === link.name})}>
+            <Link
+              key={index}
               onClick={() => {
                 setActiveSection(link.name)
                 setTimeOfLastClick(Date.now())
@@ -23,7 +24,9 @@ export const Header = () => {
               href={link.hash}>
               {link.name}
               {link.name === activeSection &&(
-                <motion.span className="bg-white/15 rounded-full absolute inset-0 -z-10" 
+                <motion.span
+                  key={index}
+                  className="dark:bg-white/15 bg-black/15 rounded-full absolute inset-0 -z-10" 
                   layoutId="activeSection"
                   transition={{
                     type: "spring",
