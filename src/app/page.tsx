@@ -8,14 +8,16 @@ import { EducationSection } from "@/sections/Education";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
-      <Header />
-      <HeroSection />
-      <ProjectsSection />
-      <AboutSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
+    <div>
+      <main >
+        <Header />
+        <HeroSection />
+        <ProjectsSection />
+        <AboutSection />
+        <EducationSection />
+        <ContactSection />
+        <Footer />
+      </main>
     </div>
   );
 }
