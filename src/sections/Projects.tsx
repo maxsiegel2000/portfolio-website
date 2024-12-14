@@ -9,7 +9,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { ArrowUpRightIcon } from "lucide-react";
 
 export const ProjectsSection = () => {
-  const {ref} = useSectionInView("Projects", 0.5)
+  const {ref} = useSectionInView("Projects", 0.25)
   return (
     <motion.section className="pb-16 lg:py-24 scroll-mt-28"
     initial={{ y: 100,opacity:0}} 
