@@ -106,6 +106,7 @@ const config: Config = {
   },
   plugins: [
     require("@designbycode/tailwindcss-mask-image"),
-      require("tailwindcss-animate")],
+    require("tailwindcss-animate"),
+	require('tailwind-scrollbar-hide')]
 };
 export default config;

@@ -8,7 +8,7 @@ import { EducationSection } from "@/sections/Education";
 
 export default function Home() {
   return (
-    <div>
+    <div className="scrollbar-hide">
       <main >
         <Header />
         <HeroSection />
