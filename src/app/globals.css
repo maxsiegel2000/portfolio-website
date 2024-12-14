@@ -86,6 +86,7 @@
 	/* For Webkit-based browsers (Chrome, Safari and Opera) */
 	.scrollbar-hide::-webkit-scrollbar {
 		-ms-overflow-style: none;
+		scrollbar-width: none; 
 		display: none;
 	}
 
