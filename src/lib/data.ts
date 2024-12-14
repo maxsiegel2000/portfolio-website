@@ -12,6 +12,7 @@ import GithubIcon from "@/assets/icons/github.svg"
 import FigmaIcon from "@/assets/icons/figma.svg"
 import NextJSIcon from "@/assets/icons/nextjs-icon.svg"
 import SwiftIcon from "@/assets/icons/swift.svg"
+import TailwindIcon from "@/assets/icons/tailwind.svg"
 
 export const links = [
 	{
@@ -200,5 +201,9 @@ export const values:any = [
 	{
 	  title: 'Swift',
 	  iconType: SwiftIcon
+	},
+	{
+		title: "Tailwind",
+		iconType: TailwindIcon
 	}
   ]
