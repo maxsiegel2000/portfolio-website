@@ -12,7 +12,7 @@ export const ToolboxItems = ({className, itemsWrapperClassName}:{
 				{toolboxItems.map(item => (
 					<div 
 					key={item.title} 
-					className="inline-flex items-center gap-4 py-2 px-3 outline outline-2 dark:outline-white/10 outline-black/10 dark:hover:outline-white hover:outline-black rounded-lg">
+					className="inline-flex items-center rounded-xl gap-4 py-2 px-3 outline outline-2 dark:outline-white/10 outline-black/10 dark:hover:outline-white hover:outline-black">
 						<TechIcon component={item.iconType}/>
 						<span className="font-semibold">{item.title}</span>
 					</div>
