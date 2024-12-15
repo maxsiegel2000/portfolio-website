@@ -18,7 +18,7 @@ export const AboutSection = () => {
     radius: 120,
     maxSpeed: 1
   }
-  const {ref} = useSectionInView("About", 0.5)
+  const {ref} = useSectionInView("About", 0.25)
   const constrainRef = useRef(null)
   return(
     <section 

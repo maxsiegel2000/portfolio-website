@@ -6,7 +6,7 @@ import { useSectionInView } from "@/lib/hooks"
 
 
 export const EducationSection = () => {
-	const { ref } = useSectionInView("Education", 0.5)
+	const { ref } = useSectionInView("Education", 0.25)
 	return(
 		<section
 			className="py-16 lg:py-28 scroll-mt-10"
