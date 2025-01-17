@@ -66,7 +66,7 @@ export const HeroSection = () => {
               className="size-[100px]" 
               alt="Person peeking from behind laptop"
             /> 
-            <div className="dark:bg-slate-950 bg-slate-50 border dark:border-slate-800 border-slate-200 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
+            <div className="dark:bg-slate-950 bg-slate-50 border dark:border-slate-800 border-slate-200 rounded-full px-4 py-1.5 inline-flex items-center gap-4">
               <div className="bg-green-500 size-2.5 rounded-full relative">
                 <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
               </div>
